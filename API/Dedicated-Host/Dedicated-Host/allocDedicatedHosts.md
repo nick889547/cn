@@ -36,7 +36,14 @@ https://dh.jdcloud-api.com/v1/regions/{regionId}/dedicatedHosts
 |**name**|String|是|dh-name |专有宿主机名称|
 |**description**|String|否| |专有宿主机描述|
 |**charge**|[ChargeSpec](#chargespec)|否| |计费配置。<br>专有宿主机不支持按用量方式计费，默认为按配置计费。|
+|**userTags**|[Tag[]](createInstances#user-content-3)|否| |自定义实例标签。以key-value键值对形式指定，最多支持10个标签。key不能以 "jrn:" 或“jdc-”开头，仅支持中文、大/小写英文、数字及如下符号：`\_.,:\/=+-@`。<br>|
 |**resourceGroupId**|String| 否||资源组ID。|
+
+### <div id="user-content-3">Tag</div>
+|名称|类型|是否必须|示例值|描述|
+|---|---|---|---|---|
+|**key**|String|否||标签key。长度不能超过127字符，不能以 `jrn:` 或 `jdc-` 开头，仅支持中文、大/小写英文、数字及如下符号：`\_.,:\/=+-@`。|
+|**value**|String|否||标签value。长度不能超过255字符，仅支持中文、大/小写英文、数字及如下符号：`\_.,:\/=+-@`。|
 
 ### <div id="ChargeSpec">ChargeSpec</div>
 |名称|类型|是否必需|示例值|描述|
