@@ -37,7 +37,7 @@ https://vm.jdcloud-api.com/v1/regions/{regionId}/instances
 |**regionId**|String|是|cn-north-1|地域ID。可参考[地域及可用区](https://docs.jdcloud.com/cn/virtual-machines/regions-and-availabilityzones)。|
 
 ## <div id="user-content-requestparameters">请求参数</div>
-|名称|类型|是否必选|示例值|描述|
+|名称|类型|是否必需|示例值|描述|
 |---|---|---|---|---|
 |**instanceSpec**|[InstanceSpec](createInstances#user-content-1)|是| |实例配置。<br>|
 |**maxCount**|Integer|否|10|创建实例的数量，不能超过用户配额。<br>取值范围：`[1,100]`；默认值：`1`。<br>如果在弹性网卡中指定了内网IP地址，那么单次创建 `maxCount` 只能是 `1`。<br>|
@@ -45,7 +45,7 @@ https://vm.jdcloud-api.com/v1/regions/{regionId}/instances
 
 ### <div id="user-content-2">InstanceSpec</div>
 
-|名称|类型|是否必选|示例值|描述|
+|名称|类型|是否必需|示例值|描述|
 |---|---|---|---|---|
 |**agId**|String|否|ag-81qq****pn|高可用组ID。指定此参数后，将默认使用高可用组关联的实例模板创建实例，实例模板中的参数不可覆盖替换。实例模板以外的参数（内网IPv4/Ipv6分配方式、名称、描述、标签）可指定。<br>|
 |**instanceTemplateId**|String|否|it-u3o8****yy|实例模板ID。指定此参数后，如实例模板中参数不另行指定将默认以模板配置创建实例，如指定则以指定值为准创建。<br>指定 `agId` 时此参数无效。<br>|
@@ -77,28 +77,28 @@ https://vm.jdcloud-api.com/v1/regions/{regionId}/instances
 
 ### <div id="user-content-3">Tag</div>
 
-|名称|类型|是否必选|示例值|描述|
+|名称|类型|是否必需|示例值|描述|
 |---|---|---|---|---|
 |**key**|String|否|环境|标签key。长度不能超过127字符，不能以 `jrn:` 或 `jdc-` 开头，仅支持中文、大/小写英文、数字及如下符号：`\_.,:\/=+-@`。|
 |**value**|String|否|测试|标签value。长度不能超过255字符，仅支持中文、大/小写英文、数字及如下符号：`\_.,:\/=+-@`。|
 
 ### <div id="user-content-4">Userdata</div>
 
-|名称|类型|是否必选|示例值|描述|
+|名称|类型|是否必需|示例值|描述|
 |---|---|---|---|---|
 |**key**|String|否|launch-script|脚本类型，当前仅支持输入 `launch-script`，即启动脚本。|
 |**value**|String|否|IyEvYmluL2Jhc2gKZWNobyAnMTIzJw|脚本内容，须 `Base64` 编码，且编码前长度不能超过16KB。|
 
 ### <div id="user-content-5">Metadata</div>
 
-|名称|类型|是否必选|示例值|描述|
+|名称|类型|是否必需|示例值|描述|
 |---|---|---|---|---|
 |**key**|String|否|index|key，字符长度不超过256，支持全字符。不能以连字符(-)结尾，否则此key不生效。|
 |**value**|String|否|1|value，字符长度不超过16KB，支持全字符。|
 
 ### <div id="user-content-6">ChargeSpec</div>
 
-|名称|类型|是否必选|示例值|描述|
+|名称|类型|是否必需|示例值|描述|
 |---|---|---|---|---|
 |**chargeMode**|String|否|prepaid_by_duration |计费模式。<br>可选值：<br>`postpaid_by_duration`（默认值）：按配置（后付费）<br>`prepaid_by_duration`：包年包月（预付费）<br>`postpaid_by_usage`：按用量（后付费）<br>仅弹性公网IP支持`postpaid_by_usage`，具体计费说明请参考[实例计费类型说明](https://docs.jdcloud.com/cn/virtual-machines/billing-overview)。|
 |**chargeUnit**|String|否| month|包年包月（预付费）付费单位。仅`chargeMode=prepaid_by_duration`时此参数有效。<br>可选值：<br>`month`（默认值）：月<br>`year`：年|
@@ -108,7 +108,7 @@ https://vm.jdcloud-api.com/v1/regions/{regionId}/instances
 
 ### <div id="user-content-7">InstanceDiskAttachmentSpec</div>
 
-|名称|类型|是否必选|示例值|描述|
+|名称|类型|是否必需|示例值|描述|
 |---|---|---|---|---|
 |**diskCategory**|String|否||磁盘类型。<br>**系统盘**：此参数无须指定，其类型取决于镜像类型。<br>**数据盘**：数据盘仅支持云硬盘`cloud`。<br>|
 |**autoDelete**|Boolean|否|true|是否随实例一起删除，即删除实例时是否自动删除此磁盘。此参数仅对按配置计费的非多点挂载云硬盘生效。<br>`true`：随实例删除。<br>`false`（默认值）：不随实例删除。<br>|
@@ -118,7 +118,7 @@ https://vm.jdcloud-api.com/v1/regions/{regionId}/instances
 
 ### <div id="user-content-8">DiskSpec</div>
 
-|名称|类型|是否必选|示例值|描述|
+|名称|类型|是否必需|示例值|描述|
 |---|---|---|---|---|
 |**az**|String|否| |云硬盘可用区。创建实例时此参数无须指定且指定无效。云硬盘可用区默认同实例。|
 |**name**|String|否| |云硬盘名称。创建实例时此参数无须指定。如指定则按指定名称创建，如不指定云硬盘名称同实例名称，创建多块磁盘时会在名称后依次追加序号1,2...。|
@@ -133,14 +133,14 @@ https://vm.jdcloud-api.com/v1/regions/{regionId}/instances
 |**encrypt**|Boolean|否| false|云硬盘是否加密。<br>可选值：<br>`true`：加密<br>`false`（默认值）：不加密|
 
 ### <div id="user-content-9">InstanceNetworkInterfaceAttachmentSpec</div>
-|名称|类型|是否必选|示例值|描述|
+|名称|类型|是否必需|示例值|描述|
 |---|---|---|---|---|
 |**deviceIndex**|Integer|否|1|网卡设备Index。创建实例时此参数无须指定且指定无效。<br>对于主网卡默认Index为1。<br>|
 |**autoDelete**|Boolean|否|true|是否随实例一起删除。<br>`true`：随实例删除。<br>`false`：不随实例删除。<br>主网卡此属性默认为`true`|
 |**networkInterface**|[NetworkInterfaceSpec](createInstances#user-content-10)|否| |网卡设备详细配置。<br>|
 
 ### <div id="user-content-10">NetworkInterfaceSpec</div>
-|名称|类型|是否必选|示例值|描述|
+|名称|类型|是否必需|示例值|描述|
 |---|---|---|---|---|
 |**subnetId**|String|是|subnet-8kbl****er |子网ID|
 |**az**|String|否| |网卡可用区。创建实例时此参数无须指定且指定无效。|
@@ -153,7 +153,7 @@ https://vm.jdcloud-api.com/v1/regions/{regionId}/instances
 |**description**|String|否| |网卡描述。创建实例时此参数无须指定且指定无效。|
 
 ### <div id="user-content-11">ElasticIpSpec</div>
-|名称|类型|是否必选|示例值|描述|
+|名称|类型|是否必需|示例值|描述|
 |---|---|---|---|---|
 |**bandwidthMbps**|Integer|是|10|弹性公网IP的带宽上限，单位：Mbps。<br>取值范围为：`[1-200]`。|
 |**provider**|String|是| bgp|弹性公网IP线路。中心可用区目前仅提供`BGP`类型IP。|
