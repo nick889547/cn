@@ -255,6 +255,7 @@ GET
                     "chargeStatus": "normal"
                 }, 
                 "chargeOnStopped": "keepCharging", 
+                "resourceGroupId": "rg-default", 
                 "dataDisks": [
                     {
                         "autoDelete": true, 
