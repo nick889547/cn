@@ -22,7 +22,7 @@ https://nativecontainer.jdcloud-api.com/v1/regions/{regionId}/containers
 |**pageNumber**|Integer|False| |页码；默认为1|
 |**pageSize**|Integer|False| |分页大小；默认为20；取值范围[10, 100]|
 |**filters**|[Filter[]](describecontainers#filter)|False| |containerId - 实例ID，精确匹配，支持多个<br>privateIpAddress - 主网卡IP地址，模糊匹配，支持单个<br>az - 可用区，精确匹配，支持多个<br>vpcId - 私有网络ID，精确匹配，支持多个<br>status - 容器状态，精确匹配，支持多个<br>name - 容器名称，模糊匹配，支持单个<br>subnetId - 子网ID，精确匹配，支持多个<br>|
-|**tags**|[TagFilter[]](describecontainers#tagfilter)|False| |Tag筛选条件|
+|**tagsObj**|[TagFilter[]](describecontainers#tagfilter)|False| |Tag筛选条件|
 |**resourceGroupIds**|String[]|False| |资源组ID|
 
 ### <div id="tagfilter">TagFilter</div>
@@ -30,6 +30,7 @@ https://nativecontainer.jdcloud-api.com/v1/regions/{regionId}/containers
 |---|---|---|---|---|
 |**key**|String|True| |Tag键|
 |**values**|String[]|False| |Tag值|
+
 ### <div id="filter">Filter</div>
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
