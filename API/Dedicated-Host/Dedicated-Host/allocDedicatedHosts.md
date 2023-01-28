@@ -36,6 +36,8 @@ https://dh.jdcloud-api.com/v1/regions/{regionId}/dedicatedHosts
 |**name**|String|是|dh-name |专有宿主机名称|
 |**description**|String|否| |专有宿主机描述|
 |**charge**|[ChargeSpec](#chargespec)|否| |计费配置。<br>专有宿主机不支持按用量方式计费，默认为按配置计费。|
+|**resourceGroupId**|String| 否||资源组ID。|
+
 ### <div id="ChargeSpec">ChargeSpec</div>
 |名称|类型|是否必需|示例值|描述|
 |---|---|---|---|---|
