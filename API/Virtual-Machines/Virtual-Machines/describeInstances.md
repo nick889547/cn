@@ -30,7 +30,7 @@ https://vm.jdcloud-api.com/v1/regions/{regionId}/instances
 |---|---|---|---|---|
 |**pageNumber**|Integer|否|1|页码；默认为1。|
 |**pageSize**|Integer|否|20|分页大小；<br>默认为20；取值范围[10, 100]。|
-|**tags**|[TagFilter[]](describeInstances#tagFilter)|否||Tag筛选条件| 
+|**tagsObj**|[TagFilter[]](describeInstances#tagFilter)|否||Tag筛选条件| 
 |**resourceGroupIds**|String[]|否||资源组ID|
 |**filters**|[Filter[]](describeInstances#filter)|否| |<b>filters 中支持使用以下关键字进行过滤</b><br>`instanceId`: 云主机ID，精确匹配，支持多个<br>`privateIpAddress`: 云主机挂载的网卡内网主IP地址，模糊匹配，支持多个<br>`az`: 可用区，精确匹配，支持多个<br>`vpcId`: 私有网络ID，精确匹配，支持多个<br>`status`: 云主机状态，精确匹配，支持多个，参考 [云主机状态](https://docs.jdcloud.com/virtual-machines/api/vm_status)<br>`name`: 云主机名称，模糊匹配，支持单个<br>`imageId`: 镜像ID，精确匹配，支持多个<br>`networkInterfaceId`: 弹性网卡ID，精确匹配，支持多个<br>`subnetId`: 子网ID，精确匹配，支持多个<br>`agId`: 使用可用组id，支持单个<br>`faultDomain`: 错误域，支持多个<br>`dedicatedHostId`: 专有宿主机ID，精确匹配，支持多个<br>`dedicatedPoolId`: 专有宿主机池ID，精确匹配，支持多个<br>`instanceType`: 实例规格，精确匹配，支持多个，可通过查询 [DescribeInstanceTypes](https://docs.jdcloud.com/virtual-machines/api/describeinstancetypes) 接口获得实例规格<br>`elasticIpAddress`: 公网IP地址，精确匹配，支持单个。该条件会将公网IP转换成 `networkInterfaceId` 进行查询，所以与 `networkInterfaceId` 为或者的关系。<br>|
 
@@ -45,7 +45,7 @@ https://vm.jdcloud-api.com/v1/regions/{regionId}/instances
 |名称|类型|示例值|描述|
 |---|---|---|---|
 |**key**|String||Tag键|
-|**value**|String||Tag值|
+|**values**|String[]||Tag值|
 
 ## 返回参数
 |名称|类型|示例值|描述|
