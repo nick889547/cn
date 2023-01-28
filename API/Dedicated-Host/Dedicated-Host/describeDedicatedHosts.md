@@ -31,10 +31,10 @@ https://dh.jdcloud-api.com/v1/regions/{regionId}/dedicatedHosts
 |**filters**|[Filter[]](#filter)|否| |filters 中支持使用以下关键字进行过滤<br> `dedicatedHostId` : 专有宿主机ID，精确匹配，支持多个<br> `az`: 可用区，精确匹配，支持多个<br>`status`: 专有宿主机状态，精确匹配，支持多个，<a href="http://docs.jdcloud.com/dedicated-hosts/api/dh_status">参考专有宿主机状态</a><br> `name`: 专有宿主机名称，模糊匹配，支持单个<br> `dedicatedPoolId`: 专有宿主机池ID，精确匹配，支持多个<br> `dedicatedHostType`: 专有宿主机机型，精确匹配，支持多个<br>|
 
 ### <div id="tagFilter">TagFilter</div>
-|名称|类型|示例值|描述|
-|---|---|---|---|
-|**key**|String|环境|标签key。长度不能超过127字符，不能以 `jrn:` 或 `jdc-` 开头，仅支持中文、大/小写英文、数字及如下符号：`\_.,:\/=+-@`。|
-|**value**|String|测试|标签value。长度不能超过255字符，仅支持中文、大/小写英文、数字及如下符号：`\_.,:\/=+-@`。|
+|名称|类型|是否必需|默认值|描述|
+|---|---|---|---|---|
+|**key**|String|是| |Tag键|
+|**values**|String[]|否| |Tag值|
 
 ### <div id="Filter">Filter</div>
 |名称|类型|是否必需|示例值|描述|
